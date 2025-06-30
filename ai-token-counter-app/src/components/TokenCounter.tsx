@@ -136,7 +136,8 @@ export default function TokenCounter() {
                 </h3>
                 <p className="text-sm text-blue-700 mb-2">
                   Gemini APIキーを設定すると、<strong>無料で正確な</strong>トークン数を計算できます。
-                  APIキーがない場合は推定値を表示します。セキュリティのため、APIキーはお使いのブラウザにのみ保存されます。
+                  APIキーがない場合は推定値を表示します。<br/>
+                  <strong>セキュリティ重視</strong>：APIキーはお使いのブラウザにのみ保存され、サーバーには送信されません。
                 </p>
                 <a 
                   href="https://aistudio.google.com/app/apikey" 
