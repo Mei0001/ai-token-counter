@@ -4,7 +4,7 @@ Gemini APIのトークン数を計算し、料金を見積もるWebツールで�
 
 ## 🚀 Live Demo
 
-**公開URL**: [GitHub Pages で利用可能](https://your-username.github.io/ai-token-counter/) 
+**公開URL**: [Vercel で利用可能](https://ai-token-counter.vercel.app/) 
 
 ## ✨ 主な機能
 
@@ -40,11 +40,11 @@ ai-token-counter/
 
 ## 🛠️ 技術スタック
 
-- **フレームワーク**: Next.js 15 (App Router, Static Export)
+- **フレームワーク**: Next.js 15 (App Router)
 - **言語**: TypeScript
 - **スタイリング**: Tailwind CSS
 - **API**: Google Generative AI SDK
-- **デプロイ**: GitHub Pages + GitHub Actions
+- **デプロイ**: Vercel
 
 ## 🚀 クイックスタート
 
@@ -103,7 +103,7 @@ npm run dev
 - APIキーはローカルストレージのみに保存
 - 入力テキストは一切保存されない
 - 外部への送信なし（トークン計算APIを除く）
-- GitHub Pagesでの安全な公開
+- Vercelでの安全な公開
 
 ## 🤝 コントリビューション
 
