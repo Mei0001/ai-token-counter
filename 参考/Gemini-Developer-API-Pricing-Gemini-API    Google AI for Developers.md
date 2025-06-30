@@ -57,6 +57,8 @@ ai.google.dev uses cookies to deliver and enhance the quality of its services an
 
 The Gemini API "free tier" is offered through the API service with lower rate limits for testing purposes. Google AI Studio usage is completely free in all available countries. The Gemini API "paid tier" comes with [higher rate limits](https://ai.google.dev/gemini-api/docs/rate-limits), additional features, and different data handling.
 
+## Gemini 2.5 Pro
+
 Our state-of-the-art multipurpose model, which excels at coding and complex reasoning tasks.
 
   
@@ -71,6 +73,8 @@ $0.625, prompts > 200k
 $4.50 / 1,000,000 tokens per hour (storage price) |
 | Grounding with Google Search | Not available | 1,500 RPD (free), then $35 / 1,000 requests |
 | Used to improve our products | [Yes](https://ai.google.dev/gemini-api/terms) | [No](https://ai.google.dev/gemini-api/terms) |
+
+## Gemini 2.5 Flash
 
 Our first hybrid reasoning model which supports a 1M token context window and has thinking budgets.
 
@@ -88,6 +92,8 @@ $1.00 / 1,000,000 tokens per hour (storage price) |
 Output: $2.00 (text), $12.00 (audio) |
 | Used to improve our products | [Yes](https://ai.google.dev/gemini-api/terms) | [No](https://ai.google.dev/gemini-api/terms) |
 
+## Gemini 2.5 Flash-Lite Preview
+
 Our smallest and most cost effective model, built for at scale usage.
 
 Preview models may change before becoming stable and have more restrictive rate limits.
@@ -104,6 +110,8 @@ $1.00 / 1,000,000 tokens per hour (storage price) |
 | Grounding with Google Search | Free of charge, up to 500 RPD (limit shared with Flash RPD) | 1,500 RPD (free, limit shared with Flash RPD), then $35 / 1,000 requests |
 | Used to improve our products | [Yes](https://ai.google.dev/gemini-api/terms) | [No](https://ai.google.dev/gemini-api/terms) |
 
+## Gemini 2.5 Flash Native Audio
+
 Our native audio models optimized for higher quality audio outputs with better pacing, voice naturalness, verbosity, and mood.
 
 Preview models may change before becoming stable and have more restrictive rate limits.
@@ -117,6 +125,8 @@ $3.00 (audio / video) |
 $12.00 (audio) |
 | Used to improve our products | [Yes](https://ai.google.dev/gemini-api/terms) | [No](https://ai.google.dev/gemini-api/terms) |
 
+## Gemini 2.5 Flash Preview TTS
+
 Our 2.5 Flash text-to-speech audio model optimized for price-performant, low-latency, controllable speech generation.
 
 Preview models may change before becoming stable and have more restrictive rate limits.
@@ -128,6 +138,8 @@ Preview models may change before becoming stable and have more restrictive rate 
 | Output price | Free of charge | $10.00 (audio) |
 | Used to improve our products | [Yes](https://ai.google.dev/gemini-api/terms) | [No](https://ai.google.dev/gemini-api/terms) |
 
+## Gemini 2.5 Pro Preview TTS
+
 Our 2.5 Pro text-to-speech audio model optimized for powerful, low-latency speech generation for more natural outputs and easier to steer prompts.
 
 Preview models may change before becoming stable and have more restrictive rate limits.
@@ -138,6 +150,8 @@ Preview models may change before becoming stable and have more restrictive rate 
 | Input price | Not available | $1.00 (text) |
 | Output price | Not available | $20.00 (audio) |
 | Used to improve our products | [Yes](https://ai.google.dev/gemini-api/terms) | [No](https://ai.google.dev/gemini-api/terms) |
+
+## Gemini 2.0 Flash
 
 Our most balanced multimodal model with great performance across all tasks, with a 1 million token context window, and built for the era of Agents.
 
@@ -159,6 +173,8 @@ Output: $1.50 (text), $8.50 (audio) |
 
 \[\*\] Image output is priced at $30 per 1,000,000 tokens. Output images up to 1024x1024px consume 1290 tokens and are equivalent to $0.039 per image.
 
+## Gemini 2.0 Flash-Lite
+
 Our smallest and most cost effective model, built for at scale usage.
 
   
@@ -172,6 +188,8 @@ Our smallest and most cost effective model, built for at scale usage.
 | Grounding with Google Search | Not available | Not available |
 | Used to improve our products | [Yes](https://ai.google.dev/gemini-api/terms) | [No](https://ai.google.dev/gemini-api/terms) |
 
+## Imagen 4 Preview
+
 Our latest image generation model, with significantly better text rendering and better overall image quality.
 
 Preview models may change before becoming stable and have more restrictive rate limits.
@@ -183,6 +201,8 @@ Preview models may change before becoming stable and have more restrictive rate 
 | Imagen 4 Ultra image price | Not available | $0.06 |
 | Used to improve our products | [Yes](https://ai.google.dev/gemini-api/terms) | [No](https://ai.google.dev/gemini-api/terms) |
 
+## Imagen 3
+
 Our state-of-the-art image generation model, available to developers on the paid tier of the Gemini API.
 
   
@@ -191,6 +211,8 @@ Our state-of-the-art image generation model, available to developers on the paid
 | Image price | Not available | $0.03 |
 | Used to improve our products | [Yes](https://ai.google.dev/gemini-api/terms) | [No](https://ai.google.dev/gemini-api/terms) |
 
+## Veo 2
+
 Our state-of-the-art video generation model, available to developers on the paid tier of the Gemini API.
 
   
@@ -198,6 +220,8 @@ Our state-of-the-art video generation model, available to developers on the paid
 | --- | --- | --- |
 | Video price | Not available | $0.35 |
 | Used to improve our products | [Yes](https://ai.google.dev/gemini-api/terms) | [No](https://ai.google.dev/gemini-api/terms) |
+
+Gemma 3
 
 Our lightweight, state-of the art, open model built from the same technology that powers our Gemini models.
 
@@ -212,6 +236,8 @@ Our lightweight, state-of the art, open model built from the same technology tha
 | Grounding with Google Search | Not available | Not available |
 | Used to improve our products | [Yes](https://ai.google.dev/gemini-api/terms) | [No](https://ai.google.dev/gemini-api/terms) |
 
+## Gemma 3n
+
 Our open model built for efficient performance on everyday devices like mobile phones, laptops, and tablets.
 
   
@@ -224,6 +250,8 @@ Our open model built for efficient performance on everyday devices like mobile p
 | Tuning price | Not available | Not available |
 | Grounding with Google Search | Not available | Not available |
 | Used to improve our products | [Yes](https://ai.google.dev/gemini-api/terms) | [No](https://ai.google.dev/gemini-api/terms) |
+
+## Gemini 1.5 Flash
 
 Our fastest multimodal model with great performance for diverse, repetitive tasks and a 1 million token context window.
 
@@ -243,6 +271,8 @@ Tuning service is free of charge. |
 | Grounding with Google Search | Not available | $35 / 1K grounding requests |
 | Used to improve our products | [Yes](https://ai.google.dev/gemini-api/terms) | [No](https://ai.google.dev/gemini-api/terms) |
 
+## Gemini 1.5 Flash-8B
+
 Our smallest model for lower intelligence use cases, with a 1 million token context window.
 
   
@@ -260,6 +290,8 @@ Tuning service is free of charge. | Token prices are the same for tuned models
 Tuning service is free of charge. |
 | Grounding with Google Search | Not available | $35 / 1K grounding requests |
 | Used to improve our products | [Yes](https://ai.google.dev/gemini-api/terms) | [No](https://ai.google.dev/gemini-api/terms) |
+
+Gemini 1.5 Pro
 
 Our highest intelligence Gemini 1.5 series model, with a breakthrough 2 million token context window.
 
