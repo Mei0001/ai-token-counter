@@ -8,6 +8,7 @@ import { calculateCost, formatCurrency } from "@/lib/cost-calculator";
 import ModelSelector from "./ModelSelector";
 import TextInput from "./TextInput";
 import ResultDisplay from "./ResultDisplay";
+import PricingTable from "./PricingTable";
 
 export default function TokenCounter() {
   const [selectedModelId, setSelectedModelId] = useState(GEMINI_MODELS[0].id);
@@ -20,6 +21,24 @@ export default function TokenCounter() {
   const [showApiKeyInput, setShowApiKeyInput] = useState(false);
 
   const tokenCounter = new GeminiTokenCounter();
+
+  // ローカルストレージからAPIキーを読み込み
+  useEffect(() => {
+    const savedApiKey = localStorage.getItem('gemini-api-key');
+    if (savedApiKey) {
+      setApiKey(savedApiKey);
+    }
+  }, []);
+
+  // APIキーをローカルストレージに保存
+  const handleApiKeyChange = (newApiKey: string) => {
+    setApiKey(newApiKey);
+    if (newApiKey) {
+      localStorage.setItem('gemini-api-key', newApiKey);
+    } else {
+      localStorage.removeItem('gemini-api-key');
+    }
+  };
 
   // トークンカウントの実行
   const calculateTokens = useCallback(async () => {
@@ -104,9 +123,36 @@ export default function TokenCounter() {
 
         {/* API Key入力 */}
         <div className="mb-6">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+            <div className="flex items-start gap-3">
+              <div className="flex-shrink-0">
+                <svg className="w-5 h-5 text-blue-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-sm font-medium text-blue-900 mb-1">
+                  より正確な結果を得るには
+                </h3>
+                <p className="text-sm text-blue-700 mb-2">
+                  Gemini APIキーを設定すると、<strong>無料で正確な</strong>トークン数を計算できます。
+                  APIキーがない場合は推定値を表示します。セキュリティのため、APIキーはお使いのブラウザにのみ保存されます。
+                </p>
+                <a 
+                  href="https://aistudio.google.com/app/apikey" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-sm text-blue-600 hover:text-blue-800 underline"
+                >
+                  → APIキーを無料で取得
+                </a>
+              </div>
+            </div>
+          </div>
+
           <div className="flex items-center justify-between mb-2">
             <label className="text-sm font-medium text-gray-700">
-              Gemini API Key（オプション）
+              Gemini API Key
             </label>
             <button
               onClick={() => setShowApiKeyInput(!showApiKeyInput)}
@@ -120,20 +166,21 @@ export default function TokenCounter() {
               <input
                 type="password"
                 value={apiKey}
-                onChange={(e) => setApiKey(e.target.value)}
+                onChange={(e) => handleApiKeyChange(e.target.value)}
                 placeholder="AIzaSy..."
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              <p className="mt-1 text-xs text-gray-500">
-                APIキーを入力すると正確なトークン数を計算します。入力しない場合は推定値を表示します。
-              </p>
+              <div className="mt-2 space-y-1 text-xs text-gray-600">
+                <p>✅ CountTokens APIは完全無料です</p>
+                <p>✅ APIキーはブラウザのみに保存され、送信されません</p>
+                <p>✅ 正確なトークン数でより精密な料金計算が可能</p>
+              </div>
             </div>
           )}
         </div>
 
         {/* モデル選択 */}
         <ModelSelector
-          models={GEMINI_MODELS}
           selectedModelId={selectedModelId}
           onModelSelect={setSelectedModelId}
         />
@@ -156,6 +203,9 @@ export default function TokenCounter() {
         {/* 結果表示 */}
         {result && <ResultDisplay result={result} />}
       </div>
+
+      {/* 料金表 */}
+      <PricingTable exchangeRate={exchangeRate} />
     </div>
   );
 }
