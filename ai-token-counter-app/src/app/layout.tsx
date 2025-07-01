@@ -15,6 +15,16 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "AI Token Counter - Gemini",
   description: "Gemini APIのトークン数を計算し、料金を見積もるツール",
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+    ],
+    apple: [
+      { url: '/apple-icon.svg', sizes: '180x180', type: 'image/svg+xml' },
+    ],
+  },
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({

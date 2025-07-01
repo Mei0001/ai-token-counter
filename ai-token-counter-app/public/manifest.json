@@ -1,0 +1,21 @@
+{
+  "name": "AI Token Counter - Gemini",
+  "short_name": "Token Counter",
+  "description": "Gemini APIのトークン数を計算し、料金を見積もるツール",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f8f8",
+  "theme_color": "#333333",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml"
+    }
+  ]
+}
