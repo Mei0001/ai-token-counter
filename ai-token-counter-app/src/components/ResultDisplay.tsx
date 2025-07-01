@@ -53,7 +53,9 @@ export default function ResultDisplay({ result }: ResultDisplayProps) {
               <span className="font-medium">{result.inputTokens.toLocaleString()} tokens</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">出力トークン（推定）:</span>
+              <span className="text-gray-600">
+                出力トークン{result.isOutputEstimated ? "（推定）" : "（指定）"}:
+              </span>
               <span className="font-medium">{result.outputTokens.toLocaleString()} tokens</span>
             </div>
             {result.model.features.supportsThinking && (

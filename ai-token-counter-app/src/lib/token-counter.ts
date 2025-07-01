@@ -4,13 +4,14 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 interface TokenCountResult {
   inputTokens: number;
-  outputTokens: number; // 推定値（入力の50%）
-  thinkingTokens: number; // 推定値（入力の5%）
+  outputTokens: number;
+  thinkingTokens: number;
   totalTokens: number;
   characterCount: number;
   characterCountNoSpace: number;
   wordCount: number;
   lineCount: number;
+  isOutputEstimated: boolean; // 出力が推定値かどうか
 }
 
 export class GeminiTokenCounter {
@@ -26,7 +27,7 @@ export class GeminiTokenCounter {
     this.genAI = new GoogleGenerativeAI(apiKey);
   }
 
-  async countTokens(text: string, modelId: string): Promise<TokenCountResult> {
+  async countTokens(text: string, modelId: string, customOutputTokens?: number): Promise<TokenCountResult> {
     if (!this.genAI) {
       throw new Error("API key not set");
     }
@@ -43,7 +44,11 @@ export class GeminiTokenCounter {
       const countResult = await model.countTokens(text);
       
       const inputTokens = countResult.totalTokens;
-      const outputTokens = Math.round(inputTokens * 0.5); // 出力は入力の50%と仮定
+      
+      // 出力トークン数：カスタム値または推定値
+      const outputTokens = customOutputTokens ?? Math.round(inputTokens * 0.5);
+      const isOutputEstimated = customOutputTokens === undefined;
+      
       const thinkingTokens = Math.round(inputTokens * 0.05); // 思考は入力の5%と仮定
       const totalTokens = inputTokens + outputTokens + thinkingTokens;
 
@@ -56,6 +61,7 @@ export class GeminiTokenCounter {
         characterCountNoSpace,
         wordCount,
         lineCount,
+        isOutputEstimated,
       };
     } catch (error) {
       console.error("Token counting error:", error);
@@ -64,10 +70,14 @@ export class GeminiTokenCounter {
   }
 
   // APIキーなしでの推定計算（フォールバック用）
-  estimateTokens(text: string): TokenCountResult {
+  estimateTokens(text: string, customOutputTokens?: number): TokenCountResult {
     // Geminiの場合、1トークン ≈ 4文字
     const estimatedInputTokens = Math.ceil(text.length / 4);
-    const outputTokens = Math.round(estimatedInputTokens * 0.5);
+    
+    // 出力トークン数：カスタム値または推定値
+    const outputTokens = customOutputTokens ?? Math.round(estimatedInputTokens * 0.5);
+    const isOutputEstimated = customOutputTokens === undefined;
+    
     const thinkingTokens = Math.round(estimatedInputTokens * 0.05);
     const totalTokens = estimatedInputTokens + outputTokens + thinkingTokens;
 
@@ -85,6 +95,7 @@ export class GeminiTokenCounter {
       characterCountNoSpace,
       wordCount,
       lineCount,
+      isOutputEstimated,
     };
   }
 }
